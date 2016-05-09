@@ -14,16 +14,20 @@ def findWord(word, symbols, elements):
     double = word[:2].title()
     result = False
     # nothing here, so unwind the stack
-    if len(single) == 1 and single in symbols:
-        elements.append(single)
-        result = findWord(word[1:], symbols, elements)
+
+    if len(double) == 2 and double in symbols:
+        elements.append(double)
+        result = findWord(word[2:], symbols, elements)
         if result is True:
             return True
         else:
             del elements[-1]
-    if len(double) == 2 and double in symbols:
-        elements.append(double)
-        return findWord(word[2:], symbols, elements)
+
+    if len(single) == 1 and single in symbols:
+        elements.append(single)
+        return findWord(word[1:], symbols, elements)
+
+
 
     return False
 
