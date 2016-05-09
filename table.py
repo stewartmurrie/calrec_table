@@ -2,7 +2,7 @@ import sys
 import pdb
 
 def findWord(word, symbols, elements):
-    print word, elements
+    #print word, elements
     #pdb.set_trace()
 
     if len(word) == 0:
@@ -30,12 +30,12 @@ def findWord(word, symbols, elements):
 
 def table(filename):
     with open(filename) as f:
-        symbols = [symbol.strip() for symbol in f]
+        symbols = [symbol.rstrip('\n') for symbol in f]
 
     symbols.sort()
     print symbols
 
-    word = "axes"
+    word = "axes sharp"
     elements = []
     success = findWord(word, symbols, elements)
     print success

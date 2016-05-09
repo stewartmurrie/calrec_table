@@ -1,6 +1,6 @@
 import table
 
-syms = ['Br', 'D', 'Ge', 'I']
+syms = ['B', 'Br', 'D', 'Ge', 'I', ' ']
 
 
 def test_find_single_letter():
@@ -40,3 +40,17 @@ def test_find_word():
     e = []
     assert table.findWord(letters, syms, e) is True
     assert e == ['Br', 'I', 'D', 'Ge']
+
+
+def test_find_word_2():
+    letters = 'bid'
+    e = []
+    assert table.findWord(letters, syms, e) is True
+    assert e == ['B', 'I', 'D']
+
+
+def test_find_phrase():
+    letters = 'bid bridge'
+    e = []
+    assert table.findWord(letters, syms, e) is True
+    assert e == ['B', 'I', 'D', ' ', 'Br', 'I', 'D', 'Ge']
