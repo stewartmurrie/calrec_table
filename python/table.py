@@ -1,5 +1,6 @@
 import sys
 import pdb
+import json
 
 def findWord(word, symbols, elements):
     #print word, elements
@@ -34,6 +35,9 @@ def table(filename):
 
     symbols.sort()
     print symbols
+    #fp = open ("table.json", "w")
+    #json.dump(symbols, fp, indent=4)
+    #fp.close()
 
     word = "axes sharp"
     elements = []
