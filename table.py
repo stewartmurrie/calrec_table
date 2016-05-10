@@ -25,10 +25,11 @@ def findWord(word, symbols, elements):
 
     if len(single) == 1 and single in symbols:
         elements.append(single)
-        return findWord(word[1:], symbols, elements)
-
-
-
+        result = findWord(word[1:], symbols, elements)
+        if result is True:
+            return True
+        else:
+            del elements[-1]
     return False
 
 
@@ -37,13 +38,13 @@ def table(filename):
         symbols = [symbol.rstrip('\n') for symbol in f]
 
     symbols.sort()
-    print symbols
+    #print symbols
 
-    word = "axes sharp"
+    word = "axes are sharp"
     elements = []
     success = findWord(word, symbols, elements)
     print success
-    print elements
+    print ' '.join(elements)
 
 if __name__ == "__main__":
     table(sys.argv[1])
